@@ -6,6 +6,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ConversionesComponent } from './conversiones/conversiones.component';
 import { CalculaFechaComponent } from './calcula-fecha/calcula-fecha.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormularioComponent } from './formulario/formulario.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedModule
   ]
 })
 export class UserModule { }
