@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { CookieOptions, CookieService } from 'ngx-cookie';
 import { Observable, tap } from 'rxjs';
 import { ApiService } from './api.service';
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private api: ApiService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private router: Router
   ) { }
 
   login(username: string, password: string): Observable<LoginResModel>{
@@ -44,6 +46,7 @@ export class AuthService {
             nombre: infUsuario.nombre,
           }
           this.cookieService.putObject('user', userData, options);
+          this.router.navigate(['user']);
         },
         error: (error) => {
           console.error('Ocurrio un error', error);
