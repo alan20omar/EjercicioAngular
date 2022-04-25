@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_BASE_URL: 'https://desa.ies-webcontent.com.mx'
 };

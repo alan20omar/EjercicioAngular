@@ -1,0 +1,17 @@
+.login {
+  max-width: 500px;
+  height: max-content;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  // border: solid 1px gray;
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 520px){
+  .login {
+    margin: auto 10px;
+  }
+}

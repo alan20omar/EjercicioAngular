@@ -1,0 +1,26 @@
+<div class="login position-absolute rounded">
+  <form (submit)="login()" [formGroup]="loginForm">
+    <h2 class="text-center my-3" style="font-size: x-large;">Inciar Sesión</h2>
+    <mat-divider></mat-divider>
+    <mat-form-field class="d-block mb-2 mt-4 mx-3 example-full-width" appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input matInput class="w-100" type="text" placeholder="Usuario" formControlName="username">
+      <mat-error *ngIf="getError('username','required')">Usuario requerido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="d-block mb-2 mx-3 example-full-width" appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput class="w-100" type="password" placeholder="Contraseña" formControlName="password">
+      <mat-error *ngIf="getError('password','required')">Contraseña requerida</mat-error>
+    </mat-form-field>
+    <div #errorAlert class="alert alert-danger show mx-3 d-none">
+      {{errorMessage}}
+      <button type="button" class="close" (click)="hiddenAlert()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div mat-dialog-actions class="mx-3">
+      <button mat-raised-button color="primary" type="submit" (click)="hiddenAlert()" class="mb-3 w-100 py-1" style="font-size: medium;">Iniciar Sesión</button>
+    </div>
+  </form>
+</div>
+
