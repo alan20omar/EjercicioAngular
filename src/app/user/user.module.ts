@@ -8,18 +8,23 @@ import { CalculaFechaComponent } from './calcula-fecha/calcula-fecha.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { SharedModule } from '../shared/shared.module';
 
+import { MatButtonModule } from '@angular/material/button';
+import { UserComponent } from './user.component';
+
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     ConversionesComponent,
     CalculaFechaComponent,
-    FormularioComponent
+    FormularioComponent,
+    UserComponent,
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule,
   ]
 })
 export class UserModule { }

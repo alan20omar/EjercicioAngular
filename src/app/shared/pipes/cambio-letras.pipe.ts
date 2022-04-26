@@ -13,7 +13,7 @@ export class CambioLetrasPipe implements PipeTransform {
       o: '0',
       u: '9'
     }
-    return value.replace(/a|e|i|o|u/gi, (match: string) => replaceLetters[match as keyof typeof replaceLetters]);
+    return value.replace(/a|e|i|o|u/gi, (match: string) => replaceLetters[match.toLowerCase() as keyof typeof replaceLetters]);
   }
 
 }

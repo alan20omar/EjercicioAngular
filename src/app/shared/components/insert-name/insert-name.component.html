@@ -1,0 +1,12 @@
+<h1 mat-dialog-title class="text-center">Hola {{name}}</h1>
+<div mat-dialog-content>
+  <p>¿Cuál es tu nombre?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="justify-content-center">
+  <button mat-stroked-button (click)="onNoClick()" color="warn">Cancelar</button>
+  <button mat-stroked-button [mat-dialog-close]="name" color="primary" cdkFocusInitial>Aceptar</button>
+</div>

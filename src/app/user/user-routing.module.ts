@@ -4,10 +4,12 @@ import { CalculaFechaComponent } from './calcula-fecha/calcula-fecha.component';
 import { ConversionesComponent } from './conversiones/conversiones.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { UserComponent } from './user.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: UserComponent,
     children: [
       { path: '', component: LandingPageComponent },
       { path: 'form', component: FormularioComponent },
