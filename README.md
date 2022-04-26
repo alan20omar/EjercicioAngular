@@ -21,3 +21,18 @@
 Navbar, lo dejo a tu gusto.
 11. Conversiones: Solo el titulo del componente.
 12. Calcular fecha: Dada una fecha puedas sumarle días/meses/años dinámicamente.
+13. Formulario reactivo con validaciones.
+  - nombres: "",
+  - apellidos: "",
+  - fumas: true/false,
+  - actualmentePracticasLectura: true/false,
+  - librosLeidosUltimosTresMeses: [ "Libro 1", "Libro 2", "Libro 3" ]
+  - estadoCivil: 12, 13 o 14
+  Reglas:
+  a) Todos los campos son obligatorios menos estadoCivil.
+  b) El nodo actualmentePracticasLectura determinará si se activa y se muestra el nodo
+  librosLeidosUltimosTresMeses.
+  c) El nodo librosLeidosUltimosTresMeses es de tipo FormArray.
+  d) Los nodos nombres y apellidos tendrán una validación personalizada que no permitirá tener
+  espacios al final (ocupar mat-error).
+  e) Estado civil viene de un catálogo.

@@ -13,13 +13,13 @@
     <mat-form-field appearance="fill" class="col-12 col-md-4 mb-2 mb-md-0">
       <mat-label>Selecciona una unidad</mat-label>
       <mat-select formControlName="unit" (ngModelChange)="changeDate()">
-        <mat-error *ngIf="getError('unit','required')">Por favor ingreasa una unidad</mat-error>
         <mat-option value="dias" selected>Días</mat-option>
         <mat-option value="meses">Meses</mat-option>
         <mat-option value="años">Años</mat-option>
       </mat-select>
+      <mat-error *ngIf="getError('unit','required')">Por favor ingreasa una unidad</mat-error>
     </mat-form-field>
-    <mat-form-field class="example-full-width col-12 col-md-4" appearance="fill">
+    <mat-form-field class="col-12 col-md-4" appearance="fill">
       <mat-label>Cantidad de {{calculateDateForm.value.unit}} a sumar</mat-label>
       <input matInput type="number" formControlName="quantity" [max]="100000" (ngModelChange)="changeDate()">
       <mat-error *ngIf="getError('quantity','required')">Por favor ingreasa un número</mat-error>

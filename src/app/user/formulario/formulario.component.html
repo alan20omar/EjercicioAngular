@@ -1,1 +1,37 @@
-<p>formulario works!</p>
+<div class="container">
+  <h1 class="text-center mt-3">Formulario</h1>
+  <form (submit)="submit()" [formGroup]="form" class="row pt-2">
+    <mat-form-field class="col-12 col-sm-4 mb-2" appearance="fill">
+      <mat-label>Nombre(s)</mat-label>
+      <input matInput type="text" formControlName="nombres">
+      <mat-error *ngIf="getError('nombres','required')">Por favor ingreasa tu nombre(s)</mat-error>
+      <mat-error *ngIf="getError('nombres','pattern')">El nombre contiene espacios al final</mat-error>
+    </mat-form-field>
+    <mat-form-field class="col-12 col-sm-4 mb-2" appearance="fill">
+      <mat-label>Apellidos</mat-label>
+      <input matInput type="text" formControlName="apellidos">
+      <mat-error *ngIf="getError('apellidos','required')">Por favor ingreasa tus apedillos</mat-error>
+      <mat-error *ngIf="getError('apellidos','pattern')">Los apellidos contienen espacios al final</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="col-12 col-sm-4 mb-2">
+      <mat-label>Estado civil</mat-label>
+      <mat-select formControlName="estadoCivil">
+        <mat-option *ngFor="let estado of estadoCivil" value="{{estado.id}}" title="{{estado.descripcion}}">{{estado.nombre}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="col-12 mb-4">
+      <mat-label class="slideLabel">¿Fumas?  </mat-label>
+      <mat-slide-toggle color="primary" formControlName="fumas"></mat-slide-toggle>
+      <mat-error *ngIf="getError('fumas','required')">Este campo es necesario</mat-error>
+    </div>
+    <div class="col-12 mb-4">
+      <mat-label class="slideLabel">¿Actualmente practicas la lectura?  </mat-label>
+      <mat-slide-toggle color="primary" formControlName="actualmentePracticasLectura" (change)="toggleInputLibros()"></mat-slide-toggle>
+      <mat-error *ngIf="getError('actualmentePracticasLectura','required')">Este campo es necesario</mat-error>
+    </div>
+    <app-libros-leidos-chip class="col-12 mb-3 d-block" formControlName="librosLeidosUltimosTresMeses" [hasError]="getError('librosLeidosUltimosTresMeses','required')"></app-libros-leidos-chip>
+    <div class="col-12 text-center">
+      <button mat-raised-button color="primary" type="submit" class="">Enviar</button>
+    </div>
+  </form>
+</div>

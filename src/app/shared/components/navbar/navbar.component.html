@@ -15,6 +15,9 @@
       <li class="nav-item">
         <div [routerLink]="['/user','calculatedate']" routerLinkActive="active" class="nav-link cursor-pointer">Calcular fecha</div>
       </li>
+      <li class="nav-item">
+        <div (click)="logout()" class="nav-link cursor-pointer">Salir</div>
+      </li>
     </ul>
   </div>
 </nav>

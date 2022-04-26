@@ -54,4 +54,10 @@ export class AuthService {
       })
     );
   }
+
+  logout(){
+    this.cookieService.remove('auth');
+    this.cookieService.remove('user');
+    this.router.navigate(['login']);
+  }
 }

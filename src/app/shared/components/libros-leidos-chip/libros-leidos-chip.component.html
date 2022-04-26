@@ -1,0 +1,14 @@
+<mat-form-field *ngIf="!isDisabled" class="example-chip-list" appearance="fill">
+  <mat-label>Libros leidos en los ultimos tres meses</mat-label>
+  <mat-chip-list #chipList aria-label="book selection" >
+    <mat-chip *ngFor="let book of books" (removed)="remove(book)">
+      {{book.name}}
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+    <input placeholder="Añade un libro" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+    [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+  <mat-error *ngIf="setError(chipList)">Ingresa al menos un libro</mat-error>
+</mat-form-field>
