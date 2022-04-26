@@ -19,3 +19,5 @@
 9. Página de bienvenida.
 10. Para poder navegar de un componente a otro puedes colocar un Sidebar o un
 Navbar, lo dejo a tu gusto.
+11. Conversiones: Solo el titulo del componente.
+12. Calcular fecha: Dada una fecha puedas sumarle días/meses/años dinámicamente.

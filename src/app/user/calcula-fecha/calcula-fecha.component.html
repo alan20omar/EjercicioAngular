@@ -1,1 +1,38 @@
-<p>calcula-fecha works!</p>
+<div class="container">
+  <h1 class="text-center mt-3">Calcular Fecha</h1>
+  <form [formGroup]="calculateDateForm" class="row pt-2">
+    <mat-form-field appearance="fill" class="col-12 col-md-4 mb-2 mb-md-0">
+      <mat-label>Selecciona una fecha</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" (ngModelChange)="changeDate()">
+      <!-- <mat-error *ngIf="calculateDateForm.get('date')?.errors?.['required']">Por favor ingreasa una fecha valida</mat-error> -->
+      <mat-error *ngIf="getError('date','required')">Por favor ingreasa una fecha valida</mat-error>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="col-12 col-md-4 mb-2 mb-md-0">
+      <mat-label>Selecciona una unidad</mat-label>
+      <mat-select formControlName="unit" (ngModelChange)="changeDate()">
+        <mat-error *ngIf="getError('unit','required')">Por favor ingreasa una unidad</mat-error>
+        <mat-option value="dias" selected>Días</mat-option>
+        <mat-option value="meses">Meses</mat-option>
+        <mat-option value="años">Años</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-full-width col-12 col-md-4" appearance="fill">
+      <mat-label>Cantidad de {{calculateDateForm.value.unit}} a sumar</mat-label>
+      <input matInput type="number" formControlName="quantity" [max]="100000" (ngModelChange)="changeDate()">
+      <mat-error *ngIf="getError('quantity','required')">Por favor ingreasa un número</mat-error>
+      <mat-error *ngIf="getError('quantity','pattern')">El número debe ser entero</mat-error>
+      <mat-error *ngIf="getError('quantity','max')">El número debe ser menor que 100000</mat-error>
+    </mat-form-field>
+    <div *ngIf="calculateDateForm.valid else invalidForm" class="col-12 text-center mt-3" style="font-size:larger">
+      El resultado fue <strong>{{date | date:'dd MMM yyyy'}}</strong>
+    </div>
+    <ng-template #invalidForm>
+      <div class="col-12 text-center mt-3" style="font-size:larger">
+        Por favor selecciona valores validos
+      </div>
+    </ng-template>
+  </form>
+</div>
